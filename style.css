@@ -1,0 +1,57 @@
+.galeriaPrincipal {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    border: 2px dashed #bbb;
+    height: 900px;
+    width: 55rem;
+    margin-left: 1.5rem;
+    text-align: center;
+
+
+}
+
+.galeriaFavoritos {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    border: 2px dashed #bbb;
+    height: 900px;
+    width: 55rem;
+    margin-left: 5rem;
+    text-align: center;
+    
+}
+
+.galeriaTotal {
+
+    display: flex;
+    
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.organiza {
+
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+}
+
+.draggable {
+
+    cursor: move;
+    border-radius: 20px;
+    height: 10rem;
+    width: 20rem;
+    margin: 1rem;
+}
+
+.dropzone {
+
+    display: flex;
+}
