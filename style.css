@@ -1,14 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+*{
+    font-family: "Outfit", sans-serif;
+    margin: 0;
+    width: auto;
+}
+
+header {
+
+    display: flex;
+    background-color: rgb(255, 196, 1);
+    flex-direction: column;
+    align-items: center;
+    height: 5rem;
+    margin-bottom: 5rem;
+
+}
+
+body {
+    background-color: rgb(255, 236, 184);
+}
+
 .galeriaPrincipal {
 
     display: flex;
     flex-direction: column;
-    background-color: #f3f3f3;
-    border: 2px dashed #bbb;
+    background-color: #ffe7a5;
+    border: 3px dashed #ff9900;
+    border-radius: 2rem;
     height: 900px;
     width: 55rem;
     margin-left: 1.5rem;
     text-align: center;
-
 
 }
 
@@ -16,23 +39,26 @@
 
     display: flex;
     flex-direction: column;
-    background-color: #f3f3f3;
-    border: 2px dashed #bbb;
+    background-color: #ffe7a5;
+    border: 3px dashed #ff9900;
     height: 900px;
     width: 55rem;
     margin-left: 5rem;
     text-align: center;
-    
+    border-radius: 2rem;
+
 }
 
 .galeriaTotal {
 
     display: flex;
-    
+  
 }
 
 h1 {
     font-size: 30px;
+    padding-top: 1.2rem;
+    color: rgb(54, 26, 26);
 }
 
 .organiza {
@@ -42,16 +68,36 @@ h1 {
     margin: 5rem;
 }
 
+.foto {
+
+    border-radius: 20px;
+    height: 10rem;
+    width: 20rem;
+    margin: 1.2rem;
+
+}
+
 .draggable {
 
     cursor: move;
     border-radius: 20px;
     height: 10rem;
     width: 20rem;
-    margin: 1rem;
+    margin: 1.2rem;
+
 }
 
 .dropzone {
 
-    display: flex;
+    display: grid;
+    height: 900px;
+    width: 55rem;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 1.2rem;
+}
+
+
+.over {
+
+    background-color: #ccc;
 }
