@@ -1,5 +1,6 @@
 const draggables = document.querySelectorAll('.draggable');
 const dropzone = document.querySelector('.dropzone');
+const dropzoneBack = document.querySelector('.organiza');
 
 
 //inicio do drag
@@ -40,27 +41,60 @@ dropzone.addEventListener('dragleave' , () => {
 
 
 //soltou na área de drop
-/*draggables.forEach(draggable => {
-    draggable.getElementsByClassName('dragging') = {
-        
-    }
-    dropzone.addEventListener('drop' , (event) => {
-        event.preventDefault();
-        dropzone.classList.remove('over');
-        dropzone.appendChild(draggable);
-        console.log('solto na dropzone')
-    
-    })
-});*/
-
 dropzone.addEventListener('drop' , (event) => {
     const draggable = document.querySelector('.dragging');
     event.preventDefault();
     dropzone.classList.remove('over');
     dropzone.appendChild(draggable);
-    console.log('solto na dropzone')
+    console.log('solto na dropzone');
+});
 
-})
+//exclui
+dropzone.addEventListener('click', (event) =>{
+    event.target.remove();
+});
+
+//volta para área principal - inicio do drag
+draggables.addEventListener('dragstart' , (event) => {
+    draggable.forEach(draggable => {
+        event.dataTransfer.setData('text/plain', event.target.id); 
+        draggable.classList.add('dragging');
+        console.log('dragging');    
+    });
+});
+
+//volta para área principal - fim do drag
+dropzone.addEventListener('dragend' , () => {
+    draggables.forEach(draggable => {
+        draggable.classList.remove('dragging');
+        console.log('dragend');
+    });
+});
+
+//volta para área principal - entra sobre o 'drop'
+dropzoneBack.addEventListener('dragenter' , (event) => {
+    event.preventDefault();
+    dropzoneBack.classList.add('over');
+    console.log(dropzoneBack)
+    console.log('voltou');
+});
+
+//volta para área principal - saiu sobre o 'drop'
+dropzoneBack.addEventListener('dragover' , () => {
+    dropzoneBack.classList.remove('over');
+    console.log('sobre a dropzone inicial');
+});
+
+//volta para área principal - soltou sobre o 'drop'
+dropzoneBack.addEventListener('drop' , (event) => {
+    const draggable = document.querySelector('.dragging');
+    event.preventDefault();
+    dropzoneBack.classList.remove('over');
+    dropzoneBack.appendChild(draggables);
+    console('terminei');
+});
+
+
 
 
 
