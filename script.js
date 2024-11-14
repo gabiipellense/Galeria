@@ -1,6 +1,8 @@
 const draggables = document.querySelectorAll('.draggable');
 const dropzone = document.querySelector('.dropzone');
 const dropzoneBack = document.querySelector('.organiza');
+var contadorFavoritos ; 
+var contadorPrincipal = 6 ; 
 
 
 //inicio do drag
@@ -47,29 +49,17 @@ dropzone.addEventListener('drop' , (event) => {
     dropzone.classList.remove('over');
     dropzone.appendChild(draggable);
     console.log('solto na dropzone');
+    contadorFavoritos++;
+    contadorPrincipal-- ; 
 });
 
 //exclui
 dropzone.addEventListener('click', (event) =>{
     event.target.remove();
+    contadorFavoritos-- ; 
 });
 
-//volta para área principal - inicio do drag
-draggables.addEventListener('dragstart' , (event) => {
-    draggable.forEach(draggable => {
-        event.dataTransfer.setData('text/plain', event.target.id); 
-        draggable.classList.add('dragging');
-        console.log('dragging');    
-    });
-});
-
-//volta para área principal - fim do drag
-dropzone.addEventListener('dragend' , () => {
-    draggables.forEach(draggable => {
-        draggable.classList.remove('dragging');
-        console.log('dragend');
-    });
-});
+// ---------------------------------------------
 
 //volta para área principal - entra sobre o 'drop'
 dropzoneBack.addEventListener('dragenter' , (event) => {
@@ -90,8 +80,10 @@ dropzoneBack.addEventListener('drop' , (event) => {
     const draggable = document.querySelector('.dragging');
     event.preventDefault();
     dropzoneBack.classList.remove('over');
-    dropzoneBack.appendChild(draggables);
+    dropzoneBack.appendChild(draggable);
     console('terminei');
+    contadorPrincipal++ ; 
+    contadorFavoritos-- ; 
 });
 
 
